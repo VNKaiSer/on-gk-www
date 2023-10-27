@@ -6,6 +6,8 @@
     <persistence-unit name="default">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Class -->
+        <class>com.example.cadidate.models.Candidate</class>
+        <class>com.example.cadidate.models.Experience</class>
         <!-- End Class -->
         
         <!-- Hibernate config -->
