@@ -22,18 +22,10 @@ public class Experience {
     @Column(name = "to_date")
     private LocalDate toDate;
     @ManyToOne
-    @JoinColumn(name = "can_id")
+    @JoinColumn(name = "can_id", nullable = false)
     private Candidate candidate;
 
     public Experience() {
-    }
-
-    public Experience(LocalDate fromDate, String workDescription, Roles role, String companyName, LocalDate toDate) {
-        this.fromDate = fromDate;
-        this.workDescription = workDescription;
-        this.role = role;
-        this.companyName = companyName;
-        this.toDate = toDate;
     }
 
     public Experience(LocalDate fromDate, String workDescription, Roles role, String companyName, LocalDate toDate, Candidate candidate) {
@@ -93,12 +85,17 @@ public class Experience {
         this.toDate = toDate;
     }
 
-    public Candidate getCandidate() {
-        return candidate;
+    public long getCandidate() {
+        return candidate.getId();
     }
 
     public void setCandidate(Candidate candidate) {
         this.candidate = candidate;
+    }
+
+
+    public long getCan_id(){
+        return candidate.getId();
     }
 
     @Override
@@ -110,7 +107,6 @@ public class Experience {
                 ", role=" + role +
                 ", companyName='" + companyName + '\'' +
                 ", toDate=" + toDate +
-                ", candidate=" + candidate +
                 '}';
     }
 }

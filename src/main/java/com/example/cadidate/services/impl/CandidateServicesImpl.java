@@ -24,4 +24,9 @@ public class CandidateServicesImpl implements CandidateService {
                 throw new Exception("Not fund");
         return candidate.get();
     }
+
+    @Override
+    public boolean insert(Candidate candidate) {
+        return repository.insert(candidate);
+    }
 }

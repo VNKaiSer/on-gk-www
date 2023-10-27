@@ -75,7 +75,6 @@ public class Candidate {
                 ", email='" + email + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", phone='" + phone + '\'' +
-                ", experiences=" + experiences +
                 '}';
     }
 }

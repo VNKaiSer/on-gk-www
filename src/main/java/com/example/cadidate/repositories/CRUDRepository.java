@@ -6,6 +6,9 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import org.hibernate.Hibernate;
+import org.hibernate.SessionFactory;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,8 +16,10 @@ public class CRUDRepository <T>{
     protected final EntityManager entityManager;
     protected final EntityTransaction transaction;
     public CRUDRepository(){
+
         entityManager = DBInstance.connect().getEntityManager();
         transaction = entityManager.getTransaction();
+
     }
 
     public List<T> getAll(Class<T> clazz) {
