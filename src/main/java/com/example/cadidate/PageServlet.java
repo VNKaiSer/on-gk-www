@@ -46,6 +46,9 @@ public class PageServlet extends HttpServlet {
             case "report1":
                 handleGetReport1(request,response);
                 break;
+            case "report2":
+                handleGetReport2(request,response);
+                break;
         }
         }catch (Exception e){
             e.printStackTrace();
@@ -53,6 +56,14 @@ public class PageServlet extends HttpServlet {
 
         // Hello
 
+    }
+
+    private void handleGetReport2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CandidateService service = new CandidateServicesImpl();
+        List<Candidate> candidates = service.findCandidateHasEmail();
+        request.setAttribute("candidates",candidates);
+        String page = "/report/report2.jsp";
+        forwardToPage(page, request,response);
     }
 
     private void handleGetReport1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

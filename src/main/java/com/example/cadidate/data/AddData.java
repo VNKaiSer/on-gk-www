@@ -32,7 +32,7 @@ public class AddData {
 //        experiences1.add(exp1);
 //        experiences1.add(exp2);
 //        experiences1.add(exp5);
-        Candidate candidate1 = new Candidate("tandatvok16@gmail.com","Võ Tấn Đạt","032967203",null);
+        Candidate candidate1 = new Candidate(null,"Võ Tấn Đạt","032967203",null);
         Experience exp1 = new Experience(LocalDate.of(2021,10,20), "Intern IT", Roles.STAFF,"HB" , LocalDate.of(2021,12, 20),candidate1);
         Experience exp2 = new Experience(LocalDate.of(2021,10,11), "Intern Help Desk", Roles.STAFF,"HB" , LocalDate.of(2021,12, 20),candidate1);
         Experience exp3 = new Experience(LocalDate.of(2021,10,22), "Junior IT", Roles.STAFF,"HB" , LocalDate.of(2021,12, 21),candidate1);
