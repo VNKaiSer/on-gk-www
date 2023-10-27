@@ -25,4 +25,92 @@ public class Experience {
     @JoinColumn(name = "can_id")
     private Candidate candidate;
 
+    public Experience() {
+    }
+
+    public Experience(LocalDate fromDate, String workDescription, Roles role, String companyName, LocalDate toDate) {
+        this.fromDate = fromDate;
+        this.workDescription = workDescription;
+        this.role = role;
+        this.companyName = companyName;
+        this.toDate = toDate;
+    }
+
+    public Experience(LocalDate fromDate, String workDescription, Roles role, String companyName, LocalDate toDate, Candidate candidate) {
+        this.fromDate = fromDate;
+        this.workDescription = workDescription;
+        this.role = role;
+        this.companyName = companyName;
+        this.toDate = toDate;
+        this.candidate = candidate;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDate getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public String getWorkDescription() {
+        return workDescription;
+    }
+
+    public void setWorkDescription(String workDescription) {
+        this.workDescription = workDescription;
+    }
+
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public LocalDate getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
+    }
+
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
+
+    @Override
+    public String toString() {
+        return "Experience{" +
+                "id=" + id +
+                ", fromDate=" + fromDate +
+                ", workDescription='" + workDescription + '\'' +
+                ", role=" + role +
+                ", companyName='" + companyName + '\'' +
+                ", toDate=" + toDate +
+                ", candidate=" + candidate +
+                '}';
+    }
 }

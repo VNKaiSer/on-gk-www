@@ -15,18 +15,17 @@ public class Candidate {
     @Column(name = "full_name")
     private String fullName;
     private String phone;
-    @OneToMany(mappedBy = "candidate")
+    @OneToMany(mappedBy = "candidate", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Experience> experiences;
 
     public Candidate() {
     }
 
-    public Candidate(long id, String email, String fullName, String phone, List<Experience> experences) {
-        this.id = id;
+    public Candidate(String email, String fullName, String phone, List<Experience> experiences) {
         this.email = email;
         this.fullName = fullName;
         this.phone = phone;
-        this.experiences = experences;
+        this.experiences = experiences;
     }
 
     public long getId() {
