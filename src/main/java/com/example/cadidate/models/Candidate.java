@@ -4,8 +4,12 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "candidates")
 @Table(name = "candidates")
+@NamedQueries({
+        @NamedQuery(name = "candidate.findCandidateByRole", query = "SELECT c from candidates c inner join experiences e on c.id = e.candidate.id where e.role = :role"),
+        @NamedQuery(name= "candidates.findCandidateHasEmail" , query = "SELECT c from candidates c where c.email is not null")
+})
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "experiences")
 @Table(name = "experiences")
 public class Experience {
     @Id
@@ -16,6 +16,9 @@ public class Experience {
     private LocalDate fromDate;
     @Column(name = "work_desc")
     private String workDescription;
+
+    @Column(name = "role")
+    @Enumerated(value = EnumType.ORDINAL)
     private Roles role;
     @Column(name = "company")
     private String companyName;
@@ -61,8 +64,8 @@ public class Experience {
         this.workDescription = workDescription;
     }
 
-    public Roles getRole() {
-        return role;
+    public int getRole() {
+        return role.getValue();
     }
 
     public void setRole(Roles role) {

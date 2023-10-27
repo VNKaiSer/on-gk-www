@@ -29,4 +29,14 @@ public class CandidateServicesImpl implements CandidateService {
     public boolean insert(Candidate candidate) {
         return repository.insert(candidate);
     }
+
+    @Override
+    public List<Candidate> findCandidateByRole(int role) {
+        return repository.findCandidateByRole(role);
+    }
+
+    @Override
+    public List<Candidate> findCandidateHasEmail() {
+        return repository.findCandidateHasEmail();
+    }
 }

@@ -43,6 +43,9 @@ public class PageServlet extends HttpServlet {
             case "detail-candidate":
                 handleActionCandidateDetail(request, response);
                 break;
+            case "report1":
+                handleGetReport1(request,response);
+                break;
         }
         }catch (Exception e){
             e.printStackTrace();
@@ -50,6 +53,11 @@ public class PageServlet extends HttpServlet {
 
         // Hello
 
+    }
+
+    private void handleGetReport1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String page = "/report/report1.jsp";
+        forwardToPage(page, request,response);
     }
 
     private void handleActionCandidateDetail(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -75,10 +83,39 @@ public class PageServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)  {
+        try{
+            String action = request.getParameter("action");
+            if(action == null) {
+                PrintWriter out = response.getWriter();
+                out.println("<html><body>");
+                out.println("<h1>" + message + "</h1>");
+                out.println("</body></html>");
+                return;
+            }
+            switch (action){
+                case "report1":
+                    handleReportFillerCandidateByRole(request, response);
+                    break;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void handleReportFillerCandidateByRole(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CandidateService service = new CandidateServicesImpl();
+        int role = Integer.parseInt(request.getParameter("role"));
+        System.out.println(role);
+        List<Candidate> candidatesByRole = service.findCandidateByRole(role);
+        request.setAttribute("candidates", candidatesByRole);
+        String page = "/report/report1.jsp";
+        System.out.println(candidatesByRole);
+        forwardToPage(page, request, response);
+//        response.sendRedirect();
     }
 
     public void destroy() {
+
     }
 }

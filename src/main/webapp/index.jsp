@@ -9,9 +9,9 @@
         <%= "Võ Tấn Đạt - 20116031" %>
     </h1>
     <br/>
-    <a href="page?action=home">Hello Servlet</a>
-    <a href="page?action=candidate">Câu 4</a>
-    <a href="page?action=home">Câu 5</a>
-    <a href="page?action=home">Câu 6</a>
+    <a href="page?action=home">Hello Servlet</a> <br>
+    <a href="page?action=candidate">Câu 4</a><br>
+    <a href="page?action=report1">Câu 5</a><br>
+    <a href="page?action=report2">Câu 6</a><br>
 </body>
 </html>
